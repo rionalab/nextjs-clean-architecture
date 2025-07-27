@@ -1,13 +1,11 @@
-import { User } from '@/src/domain/user/entitiy';
-import { createUser } from '@/src/domain/user/factory';
-import { UserRepository } from '@/src/domain/user/repository';
-import { CreateUserInput } from '@/src/domain/user/types';
+import { cleanCreateUserInput } from '@/src/domain/user/factory';
+import { IInputCreateUser, IUserRepository } from '@/src/domain/user/types';
 
-export const createUserUseCase = async (
-   repo: UserRepository,
-   input: CreateUserInput
+export const ucCreateUser = async (
+   repo: IUserRepository,
+   input: IInputCreateUser
 ) => {
-   const user = createUser(input);
+   const user = cleanCreateUserInput(input);
    await repo.create(user);
 
    return user;

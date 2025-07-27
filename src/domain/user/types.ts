@@ -1,7 +1,7 @@
 export interface IUserRepository {
    getById(id: string): Promise<IUser | null>;
-   create(user: IUser): Promise<void>;
-   update(user: IUser): Promise<void>;
+   create(user: IUser): Promise<IUser>;
+   update(user: IUser): Promise<IUser>;
    delete(id: string): Promise<void>;
    getAll(): Promise<IUser[]>;
 }

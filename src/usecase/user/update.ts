@@ -1,10 +1,8 @@
-import { User } from '@/src/domain/user/entitiy';
-import { UserRepository } from '@/src/domain/user/repository';
-import { UpdateUserInput } from '@/src/domain/user/types';
+import { IInputUpdateUser, IUserRepository } from '@/src/domain/user/types';
 
-export const updateUser = async (
-   repo: UserRepository,
-   input: UpdateUserInput
+export const ucUpdateUser = async (
+   repo: IUserRepository,
+   input: IInputUpdateUser
 ) => {
    const user = await repo.getById(input.id);
    if (!user) {

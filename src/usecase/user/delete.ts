@@ -1,6 +1,6 @@
-import { UserRepository } from '@/src/domain/user/repository';
+import { IUserRepository } from '@/src/domain/user/types';
 
-export const deleteuserUseCase = async (repo: UserRepository, id: string) => {
+export const ucDeleteUser = async (repo: IUserRepository, id: string) => {
    if (repo.getById(id) === null) {
       throw new Error(`User with id ${id} not found`);
    }
